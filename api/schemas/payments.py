@@ -21,4 +21,4 @@ class Payment(PaymentBase):
     order: Optional['Order'] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True

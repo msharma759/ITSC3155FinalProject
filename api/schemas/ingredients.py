@@ -1,17 +1,26 @@
+# from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 
 
-from . import orders, order_details, recipes, sandwiches, resources, ingredients, menu, promotions, reviews
+class IngredientsBase(BaseModel):
+    amountAvailable: int
+    ingredientName: str
+    unit: str
 
-from ..dependencies.database import engine
+
+class IngredientsCreate(IngredientsBase):
+    pass
 
 
-def index():
-    orders.Base.metadata.create_all(engine)
-    order_details.Base.metadata.create_all(engine)
-    recipes.Base.metadata.create_all(engine)
-    sandwiches.Base.metadata.create_all(engine)
-    resources.Base.metadata.create_all(engine)
-    ingredients.Base.metadata.create_all(engine)
-    menu.Base.metadata.create_all(engine)
-    promotions.Base.metadata.create_all(engine)
-    reviews.Base.metadata.create_all(engine)
+class IngredientsUpdate(BaseModel):
+    amountAvailable: Optional[int] = None
+    ingredientName: Optional[str] = None
+    unit: Optional[str] = None
+
+
+class Ingredients(IngredientsBase):
+    ingredientId: int
+
+    class ConfigDict:
+        from_attributes = True

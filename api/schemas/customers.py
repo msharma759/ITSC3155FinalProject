@@ -21,4 +21,4 @@ class Customer(CustomerBase):
     orders: Optional[List['Order']] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
