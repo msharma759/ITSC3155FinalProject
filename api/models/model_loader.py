@@ -1,6 +1,7 @@
-from . import orders, order_details, recipes, sandwiches, resources
+from . import orders, order_details, recipes, sandwiches, resources, ingredients, customers
 
 from ..dependencies.database import engine
+from ..schemas import reviews, payments, menu, promotions
 
 
 def index():
