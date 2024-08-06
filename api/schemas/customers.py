@@ -1,6 +1,5 @@
-from typing import Optional, List
 from pydantic import BaseModel
-
+from typing import Optional, List
 
 class CustomerBase(BaseModel):
     name: str
@@ -17,18 +16,11 @@ class CustomerUpdate(BaseModel):
     phone_number: Optional[str] = None
     address: Optional[str] = None
 
-class Order(BaseModel):
-    id: int
-    description: str
-    customer_id: int
-
 class Customer(CustomerBase):
     id: int
-    orders: Optional[List[Order]] = []
+    orders: Optional[List['Order']] = []
 
     class Config:
+        arbitrary_types_allowed = True
         orm_mode = True
 
-# Resolve forward references
-Customer.update_forward_refs()
-Order.update_forward_refs()

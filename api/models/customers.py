@@ -13,11 +13,3 @@ class Customer(Base):
 
     orders = relationship("Order", back_populates="customer")
 
-class Order(Base):
-    __tablename__ = "orders"
-
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    description = Column(String(300), nullable=False)
-    customer_id = Column(Integer, ForeignKey('customers.id'))
-
-    customer = relationship("Customer", back_populates="orders")
