@@ -1,4 +1,4 @@
-from . import orders, order_details, recipes, sandwiches, resources, ingredients, customers
+from . import orders, order_details, recipes, sandwiches, resources, ingredients, customers, payments, promotions, reviews, menu
 
 from ..dependencies.database import engine
 from ..schemas import reviews, payments, menu, promotions
