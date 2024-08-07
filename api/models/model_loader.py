@@ -1,8 +1,6 @@
 from . import orders, order_details, recipes, sandwiches, resources, ingredients, customers, payments, promotions, reviews, menu
 
 from ..dependencies.database import engine
-from ..schemas import reviews, payments, menu, promotions
-
 
 def index():
     orders.Base.metadata.create_all(engine)
