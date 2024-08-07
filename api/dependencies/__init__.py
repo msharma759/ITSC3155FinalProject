@@ -1,2 +1,6 @@
 def get_db():
-    return None
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
