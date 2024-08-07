@@ -14,3 +14,4 @@ def load_routes(app):
     app.include_router(resources.router)
     app.include_router(reviews.router)
     app.include_router(sandwiches.router)
+    return app
